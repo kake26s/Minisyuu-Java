@@ -1,0 +1,4 @@
+name: syuu
+main: main.Main
+api: ["1.0.0"]
+author: "kake26s"
