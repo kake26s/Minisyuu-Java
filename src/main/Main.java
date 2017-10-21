@@ -1,22 +1,21 @@
 package main;
 
 import cn.nukkit.*;
-import cn.nukkit.event.Listener;
 import cn.nukkit.plugin.PluginBase;
-//event
-import cn.nukkit.event.*;
-import cn.nukkit.event.player.*;
+//
+import main.game.GameManager;
+import main.event.Event;
 
-public class Main extends PluginBase implements Listener{
+public class Main extends PluginBase{
+
+	//Gameオブジェクト
+	private GameManager gm;
 
 	@Override
 	public void onEnable(){
-		this.getServer().getPluginManager().registerEvents(this, this);
-	}
+		Event event = new Event();
+		this.getServer().getPluginManager().registerEvents(event, this);
 
-	@EventHandler
-	public void onJoin(PlayerJoinEvent e){
-		Player pl = e.getPlayer();
-		pl.sendMessage("Hello World");
+		this.gm = new GameManager();
 	}
 }
